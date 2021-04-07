@@ -3,9 +3,11 @@ import { TextField, Box } from '@material-ui/core';
 import { connect } from 'react-redux';
 import * as actions from '../../redux/contacts/contacts-actions';
 
-function Filter({ changeFilter, filter }) {
+import { getFilter } from '../../redux/contacts/contacts-selectors';
+
+function Filter({ onChange, value }) {
   function inputFilterHendler({ target: { value } }) {
-    changeFilter(value);
+    onChange(value);
   }
 
   return (
@@ -14,7 +16,7 @@ function Filter({ changeFilter, filter }) {
         <TextField
           id="standard-basic"
           label="find contact by name"
-          value={filter}
+          value={value}
           onChange={inputFilterHendler}
           margin="dense"
         />
@@ -25,13 +27,13 @@ function Filter({ changeFilter, filter }) {
 
 const mapStateToProps = state => {
   return {
-    filter: state.filter,
+    value: getFilter(state),
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    changeFilter: value => dispatch(actions.changeFilter(value)),
+    onChange: value => dispatch(actions.changeFilter(value)),
   };
 };
 

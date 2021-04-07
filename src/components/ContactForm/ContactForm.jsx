@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TextField, Button, Box } from '@material-ui/core';
 import { connect } from 'react-redux';
-
+import { getAllContacts } from '../../redux/contacts/contacts-selectors';
 import * as operations from '../../redux/contacts/contacts-operations';
 
 function ContactForm({ contacts, addContact }) {
@@ -70,7 +70,11 @@ function ContactForm({ contacts, addContact }) {
   );
 }
 
-const mapStateToProps = ({ contacts }) => ({ contacts });
+const mapStateToProps = state => {
+  return {
+    contacts: getAllContacts(state),
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {

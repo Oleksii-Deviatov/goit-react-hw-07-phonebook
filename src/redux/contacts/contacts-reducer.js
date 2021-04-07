@@ -2,22 +2,34 @@ import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 import * as actions from '../../redux/contacts/contacts-actions';
 
-const init = [
-  { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-  { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-];
-
-const contacts = createReducer(init, {
-  [actions.addContact]: (state, { payload }) => [...state, payload],
-  [actions.delContact]: (state, { payload }) =>
+const contacts = createReducer([], {
+  [actions.fetchContactsSuccess]: (_, { payload }) => payload,
+  [actions.addContactsSuccess]: (state, { payload }) => [...state, payload],
+  [actions.delContactsSuccess]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
+});
+
+const loading = createReducer(false, {
+  [actions.fetchContactsRequest]: () => true,
+  [actions.fetchContactsSuccess]: () => false,
+  [actions.fetchContactsError]: () => false,
+  [actions.addContactsRequest]: () => true,
+  [actions.addContactsSuccess]: () => false,
+  [actions.addContactError]: () => false,
+  [actions.delContactsRequest]: () => true,
+  [actions.delContactsSuccess]: () => false,
+  [actions.delContactsError]: () => false,
 });
 
 const filter = createReducer('', {
   [actions.changeFilter]: (_, { payload }) => payload,
 });
 
+const error = createReducer(null, {});
+
 export default combineReducers({
   contacts,
   filter,
+  error,
+  loading,
 });

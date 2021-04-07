@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { TextField, Button, Box } from '@material-ui/core';
 import { connect } from 'react-redux';
-import * as actions from '../../redux/contacts/contacts-actions';
+
+import * as operations from '../../redux/contacts/contacts-operations';
 
 function ContactForm({ contacts, addContact }) {
   const [inputName, setInputName] = useState('');
@@ -73,7 +74,7 @@ const mapStateToProps = ({ contacts }) => ({ contacts });
 
 const mapDispatchToProps = dispatch => {
   return {
-    addContact: data => dispatch(actions.addContact(data)),
+    addContact: data => dispatch(operations.addContact(data)),
   };
 };
 

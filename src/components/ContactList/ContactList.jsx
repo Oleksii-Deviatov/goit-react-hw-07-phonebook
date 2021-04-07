@@ -1,8 +1,14 @@
 import Conact from '../Contact';
 import { List } from '@material-ui/core';
 import { connect } from 'react-redux';
+import * as operations from '../../redux/contacts/contacts-operations';
+import { useEffect } from 'react';
 
-function ContactList({ contacts }) {
+function ContactList({ contacts, fetchContacts }) {
+  useEffect(() => {
+    fetchContacts();
+  }, []);
+
   return (
     <List>
       {contacts.map(({ id, name, number }) => {
@@ -24,4 +30,10 @@ const mapStateToProps = ({ contacts, filter }) => ({
   contacts: getVisibleContacts(contacts, filter),
 });
 
-export default connect(mapStateToProps)(ContactList);
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchContacts: () => dispatch(operations.fetchContacts()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactList);

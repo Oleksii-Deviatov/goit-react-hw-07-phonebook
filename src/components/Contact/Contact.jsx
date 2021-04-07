@@ -8,9 +8,9 @@ import {
 } from '@material-ui/core';
 import DeleteForeverTwoToneIcon from '@material-ui/icons/DeleteForeverTwoTone';
 import { connect } from 'react-redux';
-import * as actions from '../../redux/contacts/contacts-actions';
 import styles from './styles.module.css';
 import ListItem from '@material-ui/core/ListItem';
+import * as operations from '../../redux/contacts/contacts-operations';
 
 function Conact({ id, name, number, delContact }) {
   return (
@@ -39,7 +39,7 @@ function Conact({ id, name, number, delContact }) {
 
 const mapDispatchToProps = dispatch => {
   return {
-    delContact: value => dispatch(actions.delContact(value)),
+    delContact: id => dispatch(operations.delContact(id)),
   };
 };
 

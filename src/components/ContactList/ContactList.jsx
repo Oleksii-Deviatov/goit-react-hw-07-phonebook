@@ -1,10 +1,9 @@
 import Conact from '../Contact';
 import { List } from '@material-ui/core';
 import { connect } from 'react-redux';
-
 import { getVisibleContacts } from '../../redux/contacts/contacts-selectors';
 
-function ContactList({ contacts, fetchContacts }) {
+function ContactList({ contacts }) {
   return (
     <List>
       {contacts.map(({ id, name, number }) => {

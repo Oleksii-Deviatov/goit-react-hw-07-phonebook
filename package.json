@@ -1,8 +1,8 @@
 {
-  "name": "goit-react-hw-06-phonebook",
+  "name": "goit-react-hw-07-phonebook",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://lewyk.github.io/goit-react-hw-06-phonebook",
+  "homepage": "https://lewyk.github.io/goit-react-hw-07-phonebook",
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
@@ -16,6 +16,7 @@
     "modern-normalize": "^1.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-loader-spinner": "^4.0.0",
     "react-redux": "^7.2.3",
     "react-scripts": "4.0.2",
     "redux": "^4.0.5",
@@ -34,7 +35,7 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "api-server": "json-server --port 4040 --delay 1000 --watch db.json"
+    "api-server": "json-server --port 4040 --delay 2000 --watch db.json"
   },
   "eslintConfig": {
     "extends": [

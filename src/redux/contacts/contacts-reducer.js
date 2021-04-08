@@ -29,7 +29,7 @@ const error = createReducer(null, {});
 
 export default combineReducers({
   contacts,
+  loading,
   filter,
   error,
-  loading,
 });

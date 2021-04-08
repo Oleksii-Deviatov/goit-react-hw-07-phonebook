@@ -4,6 +4,8 @@ const getFilter = state => state.filter;
 
 const getAllContacts = state => state.contacts;
 
+const getLoading = state => state.loading;
+
 const getVisibleContacts = createSelector(
   [getAllContacts, getFilter],
   (contacts, filter) => {
@@ -15,4 +17,4 @@ const getVisibleContacts = createSelector(
   },
 );
 
-export { getFilter, getVisibleContacts, getAllContacts };
+export { getFilter, getVisibleContacts, getAllContacts, getLoading };

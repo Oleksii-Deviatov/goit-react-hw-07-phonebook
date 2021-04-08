@@ -6,8 +6,7 @@ import { connect } from 'react-redux';
 import * as operations from './redux/contacts/contacts-operations';
 import { useEffect } from 'react';
 import { getLoading } from './redux/contacts/contacts-selectors';
-import Loader from 'react-loader-spinner';
-import styles from './styles.module.css';
+import Spinner from './components/Spinner';
 
 function App({ fetchContacts, getLoading }) {
   useEffect(() => {
@@ -21,15 +20,7 @@ function App({ fetchContacts, getLoading }) {
           Phonebook
         </Typography>
 
-        {getLoading && (
-          <Loader
-            className={styles.loader}
-            type="Puff"
-            color="#00BFFF"
-            height={100}
-            width={100}
-          />
-        )}
+        {getLoading && <Spinner />}
 
         <ContactForm />
 

@@ -1,0 +1,16 @@
+import Loader from 'react-loader-spinner';
+import styles from './styles.module.css';
+
+function Spinner() {
+  return (
+    <Loader
+      className={styles.loader}
+      type="Puff"
+      color="#00BFFF"
+      height={100}
+      width={100}
+    />
+  );
+}
+
+export default Spinner;

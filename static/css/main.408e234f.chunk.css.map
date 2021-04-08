@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/components/Contact/styles.module.css","webpack://src/styles.module.css"],"names":[],"mappings":"AAAA,oBACE,UACF,CCFA,sBACE,iBAAkB,CAClB,KAAM,CACN,UACF","file":"main.408e234f.chunk.css","sourcesContent":[".card {\n  width: 100%;\n}\n",".loader {\n  position: absolute;\n  top: 0;\n  left: 316px;\n}\n"]}

@@ -1,5 +1,6 @@
 .loader {
   position: absolute;
-  top: 0;
-  left: 316px;
+  top: 14%;
+  left: 50%;
+  transform: translateX(-50%);
 }
